@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Node.js (React)
+node_modules/
+build/
+dist/
+npm-debug.log*
+
+# Data files
+data/raw/
+data/processed/
+*.csv
+*.tsv
+
+# Editor/OS clutter
+.DS_Store
+.vscode/
