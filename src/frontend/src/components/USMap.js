@@ -33,7 +33,7 @@ function USMap() {
   useEffect(() => {
     const file =
       dataset === "cvap"
-        ? "/data/cvap_totals.csv"
+        ? "/data/CVAP_totals.csv"
         : "/data/heritage_data_2020.csv";
 
     d3.csv(file).then(rows => {
