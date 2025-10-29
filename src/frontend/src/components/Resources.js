@@ -12,6 +12,7 @@ const H1 = ({ children }) => (
     {children}
   </h1>
 );
+
 const H2 = ({ children, id }) => (
   <h2
     id={id}
@@ -28,12 +29,15 @@ const H2 = ({ children, id }) => (
     {children}
   </h2>
 );
+
 const P = ({ children }) => (
-  <p style={{ fontSize: 17, color: "#374151", margin: "0.75rem 0" }}>{children}</p>
+  <p style={{ fontSize: 17, color: "#374151", margin: "0.75rem 0", textAlign: "justify" }}>{children}</p>
 );
+
 const Small = ({ children }) => (
   <small style={{ fontSize: 14, color: "#6b7280" }}>{children}</small>
 );
+
 const Card = ({ title, children }) => (
   <div
     style={{
@@ -46,7 +50,14 @@ const Card = ({ title, children }) => (
     }}
   >
     {title && (
-      <strong style={{ display: "block", fontSize: "1rem", color: "#1e3a8a", marginBottom: "0.5rem" }}>
+      <strong
+        style={{
+          display: "block",
+          fontSize: "1rem",
+          color: "#1e3a8a",
+          marginBottom: "0.5rem",
+        }}
+      >
         {title}
       </strong>
     )}
@@ -61,159 +72,142 @@ const A = ({ href, children }) => (
 );
 
 export default function Resources() {
-  const sources = [
-    {
-      href: "https://www.brennancenter.org/our-work/research-reports/noncitizen-voting-what-real-story",
-      label: "Brennan Center for Justice: Noncitizen Voting—What’s the Real Story?",
-    },
-    {
-      href: "https://electionlab.mit.edu/research",
-      label: "MIT Election Data + Science Lab: Voter Turnout and Access Studies",
-    },
-    {
-      href: "https://www.pewresearch.org/short-reads/2023/09/19/misinformation-about-election-fraud-has-persisted-since-2020/",
-      label: "Pew Research: Misinformation About Election Fraud Since 2020",
-    },
-    {
-      href: "https://naacpldf.org/wp-content/uploads/Shelby-County-v-Holder-Case-Analysis.pdf",
-      label: "NAACP LDF: Shelby County v. Holder (Case Analysis)",
-    },
-    {
-      href: "https://sewell.house.gov/media/press-releases/rep-sewell-introduces-john-r-lewis-voting-rights-advancement-act",
-      label: "Rep. Terri Sewell: John R. Lewis Voting Rights Advancement Act",
-    },
-    {
-      href: "https://www.aclu.org/press-releases/aclu-condemns-house-passing-of-save-act",
-      label: "ACLU: Condemning the SAVE Act",
-    },
-  ];
-
   return (
     <Wrap>
       <H1>Resources: Protecting Real Voters, Not Phantom Fraud</H1>
+
       <P>
-        This section anchors <strong>VoteGuard</strong> in the empirical and historical record. Decades of
-        academic inquiry—from the <A href="https://www.brennancenter.org">Brennan Center for Justice</A> to the{" "}
-        <A href="https://electionlab.mit.edu">MIT Election Data + Science Lab</A>—conclude that widespread
-        voter fraud in the United States is statistically negligible. Yet laws such as the <em>Safeguard American
-        Voter Eligibility (SAVE) Act</em> recycle this myth, imposing documentation barriers that disenfranchise
-        legitimate voters. Understanding this pattern requires looking beyond 2020 to a longer arc of
-        constitutional retrenchment and racialized voter suppression.
+        <strong>VoteGuard</strong> situates its analysis within an established body of empirical and legal
+        scholarship demonstrating that “voter fraud” has been vastly overstated as a political problem. Research
+        from the <A href="https://www.brennancenter.org">Brennan Center for Justice</A>, the{" "}
+        <A href="https://electionlab.mit.edu/">MIT Election Lab</A>, and federal accountability agencies converge
+        on one conclusion: the rate of voter impersonation or ineligible participation in U.S. elections is
+        statistically negligible. Yet the persistence of this myth—intensified through digital misinformation and
+        partisan legislation—has produced measurable democratic harm.
       </P>
 
-      <Card title="Summary">
-        <ul style={{ margin: 0, paddingLeft: "1.2rem", fontSize: 16, color: "#374151" }}>
-          <li>
-            <strong>Empirical evidence:</strong> Between 2000 and 2020, only{" "}
-            <A href="https://www.washingtonpost.com/news/wonk/wp/2014/08/06/a-comprehensive-investigation-of-voter-impersonation-finds-31-credible-incidents-out-of-one-billion-ballots/">
-              31 credible cases of voter impersonation
-            </A>{" "}
-            were found out of over one billion ballots cast.
-          </li>
-          <li>
-            <strong>Policy risk:</strong> Requiring passports or birth certificates functions as a{" "}
-            <strong>de facto wealth test</strong>, disproportionately excluding lower-income, rural, and minority voters.
-          </li>
-          <li>
-            <strong>Historical continuity:</strong> These restrictions reflect post–<em>Shelby County v. Holder</em> patterns,
-            where states exploited the rollback of federal oversight to tighten access under the guise of “integrity.”
-          </li>
-        </ul>
+      <Card title="Empirical Baseline">
+        <P>
+          The quantitative evidence against the voter-fraud narrative is overwhelming. A Loyola Law School review
+          of every federal election between 2000 and 2014 identified only{" "}
+          <A href="https://www.washingtonpost.com/news/wonk/wp/2014/08/06/a-comprehensive-investigation-of-voter-impersonation-finds-31-credible-incidents-out-of-one-billion-ballots/">
+            31 credible instances
+          </A>{" "}
+          of voter impersonation out of more than one billion ballots cast. Similarly, the{" "}
+          <A href="https://www.brennancenter.org/our-work/research-reports/noncitizen-voting-illegal">
+            Brennan Center
+          </A>{" "}
+          found that non-citizen voting occurs at rates between 0.0003% and 0.0025%, making it statistically
+          indistinguishable from administrative error. These findings have been replicated across state audits,
+          court filings, and Department of Justice reviews.
+        </P>
+        <P>
+          The U.S. Government Accountability Office’s 2014 report concluded that strict voter ID laws depress
+          turnout by as much as three percentage points in adopting states, with disproportionate impact on Black,
+          Latino, rural, and low-income voters. The cumulative effect is what scholars term{" "}
+          <em>structural disenfranchisement</em>—a process by which procedural requirements achieve the same
+          exclusionary outcomes once produced by overtly discriminatory laws.
+        </P>
       </Card>
 
-      <H2>The Research: “Voter Fraud” vs. Empirical Reality</H2>
+      <H2>The Political Life of a Myth</H2>
       <P>
-        The notion of mass voter fraud has been repeatedly tested and falsified. The{" "}
-        <A href="https://www.brennancenter.org/our-work/research-reports/noncitizen-voting-what-real-story">
-          Brennan Center
+        Despite exhaustive evidence, the belief in widespread voter fraud remains deeply embedded in American
+        political discourse. Studies from the{" "}
+        <A href="https://www.pewresearch.org/politics/2021/01/15/voters-reflections-on-the-2020-election/">
+          Pew Research Center
         </A>{" "}
-        found the incidence of non-citizen voting between 0.0003% and 0.0025%—less than the statistical noise rate
-        in administrative data. Studies by the{" "}
-        <A href="https://electionlab.mit.edu">MIT Election Lab</A> demonstrate that allegations of systemic fraud
-        typically trace back to clerical errors, data entry mismatches, or misunderstandings about provisional ballots.
+        indicate that approximately one in four Americans continues to doubt the legitimacy of the 2020 election,
+        even after over 60 court challenges failed to produce evidence of systemic irregularities. This endurance
+        reflects not data uncertainty but what political theorists describe as a “moral panic”—a durable narrative
+        used to justify exceptional measures.
       </P>
       <P>
-        Yet misinformation persists. According to{" "}
-        <A href="https://www.pewresearch.org/short-reads/2023/09/19/misinformation-about-election-fraud-has-persisted-since-2020/">
-          Pew Research (2023)
-        </A>
-        , one in four Americans still believes the 2020 election was “stolen,” despite exhaustive audits and bipartisan
-        confirmations. This misinformation has become a powerful pretext for restrictive voting laws—a phenomenon the
-        <A href="https://law.yale.edu"> Yale Law Journal</A> describes as “legislating against ghosts.”
+        The digital ecosystem amplifies this panic through coordinated misinformation campaigns, particularly via
+        social media ecosystems that reward outrage and simplicity over nuance. The{" "}
+        <A href="https://www.brennancenter.org/our-work/research-reports/debunking-voter-fraud-myth">
+          Brennan Center
+        </A>{" "}
+        and academic reviews of election communication patterns demonstrate that false claims of fraud correlate
+        strongly with increases in proposed voting restrictions, even in states with no history of irregularities.
       </P>
 
       <H2>From Shelby County v. Holder to the SAVE Act</H2>
       <P>
-        In 2013, the Supreme Court’s decision in{" "}
-        <A href="https://naacpldf.org/wp-content/uploads/Shelby-County-v-Holder-Case-Analysis.pdf">
+        The Supreme Court’s 2013 decision in{" "}
+        <A href="https://www.naacpldf.org/case-issue/shelby-county-v-holder/">
           <em>Shelby County v. Holder</em>
         </A>{" "}
-        effectively nullified Section 5 of the Voting Rights Act, which required jurisdictions with histories of racial
-        discrimination to obtain federal “preclearance” before changing election laws. The Court argued that the formula
-        used to determine those jurisdictions was outdated—yet within months, several states (including Alabama and Texas)
-        enacted new voter ID and registration laws that had previously been blocked.
+        marked a watershed in the modern history of voting rights. By invalidating the preclearance formula of
+        the Voting Rights Act, the Court removed federal oversight from jurisdictions with documented histories of
+        racial discrimination in elections. Justice Ruth Bader Ginsburg’s dissent described the move as “throwing
+        away your umbrella in a rainstorm.” Within months, states including Alabama, Texas, and North Carolina
+        enacted new registration and ID laws that had previously been blocked under federal review.
       </P>
       <P>
-        The aftermath of <em>Shelby</em> revealed what Justice Ruth Bader Ginsburg warned in dissent: that removing federal
-        oversight “was like throwing away your umbrella in a rainstorm.” The{" "}
-        <A href="https://www.brennancenter.org/our-work/analysis-opinion/shelby-county-v-holder-decision-explained">
-          Brennan Center’s longitudinal studies
-        </A>{" "}
-        have documented measurable declines in minority voter registration and turnout in formerly protected jurisdictions.
-      </P>
-
-      <H2>Alabama’s Role and the Legacy of John R. Lewis</H2>
-      <P>
-        Alabama stands at the intersection of this history. The state was the petitioner in <em>Shelby County v. Holder</em>,
-        and it remains a proving ground for the future of voting rights. Representative{" "}
-        <A href="https://sewell.house.gov/media/press-releases/rep-sewell-introduces-john-r-lewis-voting-rights-advancement-act">
+        Representative{" "}
+        <A href="https://sewell.house.gov/2025/3/rep-sewell-introduces-the-john-r-lewis-voting-rights-advancement-act-ahead-of-the-60th-anniversary-of-bloody-sunday">
           Terri Sewell
+        </A>{" "}
+        of Alabama’s 7th District introduced the{" "}
+        <em>John R. Lewis Voting Rights Advancement Act</em> to restore preclearance provisions using
+        contemporary data on discriminatory practices. The legislation reflects an ongoing recognition that the
+        architecture of disenfranchisement evolves: today’s restrictions appear as bureaucratic procedure rather
+        than explicit exclusion.
+      </P>
+
+      <H2>Economic and Administrative Barriers</H2>
+      <P>
+        The proposed <em>Safeguard American Voter Eligibility (SAVE) Act</em> typifies this modern iteration. By
+        requiring documentary proof of citizenship—such as a passport or birth certificate—the Act imposes an
+        administrative threshold that millions of eligible citizens cannot meet. According to the{" "}
+        <A href="https://www.aclu.org/press-releases/aclu-condemns-house-passage-of-anti-voter-save-act-calls-on-senate-to-reject-it">
+          American Civil Liberties Union
         </A>
-        , who represents Alabama’s 7th District, has led the reintroduction of the{" "}
-        <em>John R. Lewis Voting Rights Advancement Act</em>—a bill restoring federal preclearance and modernizing oversight
-        formulas using recent data on discrimination.
+        , fewer than half of American adults currently hold passports, and the costs of obtaining one—including
+        processing fees, documentation retrieval, and time off work—effectively constitute a “wealth test” for
+        democratic participation.
       </P>
       <P>
-        Sewell’s work honors the legacy of{" "}
-        <A href="https://johnlewis.house.gov/">John Lewis</A>, whose 1965 march across Selma’s Edmund Pettus Bridge catalyzed
-        the original Voting Rights Act. The SAVE Act’s citizenship documentation requirements echo pre-1965 barriers like
-        literacy tests and poll taxes—measures framed as “neutral” but designed to suppress marginalized voices.
+        These burdens mirror earlier exclusionary mechanisms such as poll taxes and literacy tests: legally
+        neutral on their face, yet functionally discriminatory in practice. In this sense, the SAVE Act can be
+        understood as a postmodern form of disenfranchisement—transposing historical patterns of suppression into
+        the idiom of administrative compliance.
       </P>
 
-      <H2>The Economics of Disenfranchisement</H2>
+      <H2>Democracy as Access, Not Suspicion</H2>
       <P>
-        According to the{" "}
-        <A href="https://www.gao.gov/products/gao-14-634">U.S. Government Accountability Office (GAO)</A>,
-        voter ID and documentary proof laws have statistically significant negative effects on turnout—up to 3 percentage
-        points in states implementing strict rules. That impact compounds among low-income voters who cannot afford the
-        fees, travel, or time off work to obtain documents.
-      </P>
-      <P>
-        This dynamic mirrors what political scientists term “cost-based disenfranchisement”: when bureaucratic or economic
-        barriers shift the composition of the electorate without formally excluding anyone. In effect, the SAVE Act would
-        introduce a <strong>citizenship surcharge</strong> on participation—a moral and constitutional regression.
+        Real election security depends on transparency, auditing, and investment in nonpartisan administration,
+        not on expanding the frontier of suspicion. The empirical literature suggests that democratic legitimacy
+        strengthens when participation is broad, inclusive, and procedurally simple. Conversely, the more complex
+        the registration process becomes, the more it filters for privilege rather than commitment. As the{" "}
+        <A href="https://www.brennancenter.org/our-work/research-reports/truth-about-voter-fraud">
+          Brennan Center
+        </A>{" "}
+        has written, the myth of voter fraud “has become a tool for justifying policies that suppress the vote
+        rather than secure it.”
       </P>
 
-      <Card title="In Short">
-        The SAVE Act and similar proposals do not secure democracy; they constrict it. Real election integrity is built
-        through transparency, technology investment, and civic education—not suspicion. The path forward lies in renewing
-        the promise of the Voting Rights Act, embracing Representative Sewell’s and John Lewis’s vision of a democracy
-        broad enough for everyone.
+      <Card title="Conclusion">
+        The SAVE Act does not advance election integrity; it codifies distrust. By reframing participation as a
+        potential threat, it inverts the democratic presumption of good faith. The historical record—from{" "}
+        <em>Shelby County</em> to the present—shows that barriers justified in the name of security often serve to
+        narrow the electorate itself. Protecting democracy requires confronting that pattern directly, and
+        recommitting to what John R. Lewis called “the precious right to vote”—a right that must be expanded, not
+        rationed.
       </Card>
-
-      <H2>Learn More & Primary Sources</H2>
-      <ul style={{ fontSize: 16, lineHeight: 1.7, marginLeft: "1.1rem", color: "#374151" }}>
-        {sources.map((src, i) => (
-          <li key={i}>
-            <A href={src.href}>{src.label}</A>
-          </li>
-        ))}
-      </ul>
 
       <hr style={{ margin: "2rem 0", border: "none", borderTop: "1px solid #e5e7eb" }} />
       <Small>
-        Return to the <Link to="/" style={{ color: "#1d4ed8" }}>Home</Link> or{" "}
-        <Link to="/map" style={{ color: "#1d4ed8" }}>Map</Link>.
+        Return to the{" "}
+        <Link to="/" style={{ color: "#1d4ed8" }}>
+          Home
+        </Link>{" "}
+        or{" "}
+        <Link to="/map" style={{ color: "#1d4ed8" }}>
+          Map
+        </Link>
+        .
       </Small>
     </Wrap>
   );

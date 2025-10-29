@@ -5,12 +5,22 @@ function Header() {
   const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
+  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = () => setShowMenu(false);
     if (showMenu) document.addEventListener("click", handleClickOutside);
     return () => document.removeEventListener("click", handleClickOutside);
   }, [showMenu]);
+
+  // Detect small screens for responsive behavior
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 720);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleLinkClick = (e) => {
     e.stopPropagation();
@@ -25,16 +35,17 @@ function Header() {
         backgroundColor: "#0d3b66",
         color: "white",
         display: "flex",
+        flexWrap: "wrap",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "0.75rem 2rem",
+        padding: "0.75rem 1.25rem",
         position: "sticky",
         top: 0,
         zIndex: 100,
         boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
       }}
     >
-      {/* Left-aligned logo / site title */}
+      {/* --- Left-aligned logo --- */}
       <Link
         to="/"
         style={{
@@ -45,6 +56,7 @@ function Header() {
           textDecoration: "none",
           display: "flex",
           alignItems: "center",
+          marginBottom: isMobile ? "0.5rem" : 0,
         }}
       >
         <span
@@ -57,8 +69,18 @@ function Header() {
         </span>
       </Link>
 
-      {/* Center navigation links */}
-      <nav style={{ display: "flex", gap: "1.8rem", alignItems: "center" }}>
+      {/* --- Center navigation links --- */}
+      <nav
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "1.5rem",
+          alignItems: "center",
+          justifyContent: isMobile ? "center" : "flex-start",
+          width: isMobile ? "100%" : "auto",
+          marginBottom: isMobile ? "0.5rem" : 0,
+        }}
+      >
         {[
           { to: "/", label: "Home" },
           { to: "/map", label: "Map" },
@@ -67,6 +89,7 @@ function Header() {
           <Link
             key={link.to}
             to={link.to}
+            onClick={handleLinkClick}
             style={{
               color:
                 location.pathname === link.to
@@ -90,8 +113,15 @@ function Header() {
         ))}
       </nav>
 
-      {/* Right-aligned contact dropdown */}
-      <div style={{ position: "relative" }} onClick={(e) => e.stopPropagation()}>
+      {/* --- Right-aligned contact dropdown --- */}
+      <div
+        style={{
+          position: "relative",
+          width: isMobile ? "100%" : "auto",
+          textAlign: isMobile ? "center" : "right",
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           onClick={() => setShowMenu(!showMenu)}
           style={{
@@ -104,6 +134,7 @@ function Header() {
             cursor: "pointer",
             fontSize: "0.95rem",
             transition: "all 0.2s ease",
+            width: isMobile ? "100%" : "auto",
           }}
           onMouseEnter={(e) => {
             e.target.style.background = "#f4d35e";
@@ -121,7 +152,8 @@ function Header() {
           <div
             style={{
               position: "absolute",
-              right: 0,
+              right: isMobile ? "50%" : 0,
+              transform: isMobile ? "translateX(50%)" : "none",
               top: "2.4rem",
               background: "white",
               color: "#0d3b66",
@@ -130,6 +162,7 @@ function Header() {
               width: "220px",
               padding: "0.5rem 0",
               textAlign: "left",
+              zIndex: 999,
             }}
           >
             <a

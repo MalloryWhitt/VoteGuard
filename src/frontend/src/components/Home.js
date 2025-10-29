@@ -44,10 +44,7 @@ function Home() {
         <p style={{ fontSize: "1.05rem", lineHeight: "1.8", marginBottom: "1rem" }}>
           The SAVE Act would require documentary proof of U.S. citizenship—such as a passport or
           birth certificate—to register for federal elections. Research shows this requirement
-          would{" "}
-          <strong style={{ color: "#2d5fddff" }}>
-            disenfranchise millions of eligible citizens
-          </strong>{" "}
+          would <strong>disenfranchise millions of eligible citizens </strong>
           lacking these documents, particularly low-income, rural, elderly, and minority voters.
         </p>
 
@@ -142,9 +139,7 @@ function Home() {
             marginRight: "auto",
           }}
         >
-          VoteGuard employs publicly available, verifiable datasets to estimate how many eligible
-          voters could lose access under the SAVE Act—and to contextualize the rarity of confirmed
-          voter fraud.
+          VoteGuard employs publicly available, verifiable datasets.
         </p>
       </div>
     </div>
